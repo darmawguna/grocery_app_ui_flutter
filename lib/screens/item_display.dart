@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:grocery_app_v2/models/items_model.dart';
+import 'package:grocery_app_v2/screens/item_detail.dart';
 import 'package:grocery_app_v2/utils/color.dart';
 
 class ItemDisplay extends StatefulWidget {
@@ -25,6 +26,14 @@ class _ItemDisplayState extends State<ItemDisplay> {
         itemBuilder: (context, index) {
           FoodDetail food = foodsItems[index];
           return GestureDetector(
+            onTap: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => DetailPage(
+                            food: food,
+                          )));
+            },
             child: Container(
               height: 265,
               decoration: BoxDecoration(
